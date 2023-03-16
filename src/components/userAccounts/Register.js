@@ -24,16 +24,15 @@ function Register(props) {
   const SubmitRec = async (e) => {
     e.preventDefault();
     console.log(userRec);
-    
-    let pwordRetype = document.getElementById('pwordRetype').value;
 
-    if( pwordRetype != userRec.password){
-        alert("Passwords do not match");
-        document.getElementById('pwordRetype').value = "";
-        setUserRec({ ...userRec, password: "" });
-        return;
+    let pwordRetype = document.getElementById("pwordRetype").value;
+
+    if (pwordRetype !== userRec.password) {
+      alert("Passwords do not match");
+      document.getElementById("pwordRetype").value = "";
+      setUserRec({ ...userRec, password: "" });
+      return;
     }
-
 
     await axios
       .post("http://localhost:3500/user/register/", userRec)
@@ -42,31 +41,53 @@ function Register(props) {
         alert(`Thank you ${userRec.fname}, your account has been created`);
         navigate("/");
       })
-      .catch((err) => {console.log(err); alert("Please try again, an error occurred")});
+      .catch((err) => {
+        console.log(err);
+        alert("Please try again, an error occurred");
+      });
   };
 
   return (
     <>
       <img alt="logo" src={logo} className="mx-auto d-block" />
-      <Form onSubmit={SubmitRec}
+      <Form
+        onSubmit={SubmitRec}
         style={{ maxWidth: "450px", padding: "30px" }}
         className="mx-auto d-block border border-2"
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>First Name</Form.Label>
-          <Form.Control required onChange={onchange} value={userRec.fname}
-          name="fname" type="text" placeholder="Enter First Name" />
+          <Form.Control
+            required
+            onChange={onchange}
+            value={userRec.fname}
+            name="fname"
+            type="text"
+            placeholder="Enter First Name"
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Last Name</Form.Label>
-          <Form.Control required onChange={onchange} value={userRec.lname}
-          name="lname" type="text" placeholder="Enter Last Name" />
+          <Form.Control
+            required
+            onChange={onchange}
+            value={userRec.lname}
+            name="lname"
+            type="text"
+            placeholder="Enter Last Name"
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control required onChange={onchange} value={userRec.email}
-          name="email" type="email" placeholder="Enter email" />
+          <Form.Control
+            required
+            onChange={onchange}
+            value={userRec.email}
+            name="email"
+            type="email"
+            placeholder="Enter email"
+          />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -74,13 +95,24 @@ function Register(props) {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control required onChange={onchange} value={userRec.password}
-          name="password" type="password" placeholder="Password" />
+          <Form.Control
+            required
+            onChange={onchange}
+            value={userRec.password}
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Re-type Password</Form.Label>
-          <Form.Control id='pwordRetype' required type="password" placeholder="Password" />
+          <Form.Control
+            id="pwordRetype"
+            required
+            type="password"
+            placeholder="Password"
+          />
         </Form.Group>
 
         <Button variant="primary" type="submit">
