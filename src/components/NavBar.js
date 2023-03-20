@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 import React from "react";
 import accountContext from "./userAccounts/accountContext";
@@ -11,10 +13,14 @@ import accountContext from "./userAccounts/accountContext";
 import logo from "./media/bookepedia.gif";
 
 function NavBar(props) {
-  const { loggedIn, setLoggedIn } = React.useContext(accountContext);
+  let navigate = useNavigate();
+  const { loggedIn, setLoggedIn, userType, setUserEmail } =
+    React.useContext(accountContext);
 
   const handleLogout = () => {
+    setUserEmail("");
     setLoggedIn(false);
+    navigate("/");
   };
 
   return (
@@ -41,7 +47,9 @@ function NavBar(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
+            <LinkContainer to="home">
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
             <Nav.Link href="#action2">Link</Nav.Link>
 
             <Nav.Link href="#">Link</Nav.Link>
@@ -57,22 +65,48 @@ function NavBar(props) {
               <Button variant="success">Search</Button>
             </Form>
 
-            <Nav.Link href="upload">Add Book +</Nav.Link>
+            {userType === "USER" ? (
+              <LinkContainer to="upload">
+                <Nav.Link>Add Book +</Nav.Link>
+              </LinkContainer>
+            ) : (
+              <div></div>
+            )}
+
+            {userType === "ADMIN" ? (
+              <LinkContainer to="/all-accounts">
+                <Nav.Link>All Accounts</Nav.Link>
+              </LinkContainer>
+            ) : (
+              <div></div>
+            )}
+
             {/* 
               Adding conditional rendering depending if user is logged in
             */}
+
             {loggedIn ? (
-              <Nav.Link href="" onClick={handleLogout}>
-                Logout
-              </Nav.Link>
+              <LinkContainer to="account-details">
+                <Nav.Link>Account Details</Nav.Link>
+              </LinkContainer>
             ) : (
-              <Nav.Link href="login">Login</Nav.Link>
+              <div></div>
             )}
 
             {loggedIn ? (
               <div></div>
             ) : (
-              <Nav.Link href="register">Register</Nav.Link>
+              <LinkContainer to="register">
+                <Nav.Link>Register</Nav.Link>
+              </LinkContainer>
+            )}
+
+            {loggedIn ? (
+              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+            ) : (
+              <LinkContainer to="login">
+                <Nav.Link>Login</Nav.Link>
+              </LinkContainer>
             )}
           </Nav>
         </Navbar.Collapse>

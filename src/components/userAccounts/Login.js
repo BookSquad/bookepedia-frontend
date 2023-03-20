@@ -10,9 +10,10 @@ import Form from "react-bootstrap/Form";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("test");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const { setLoggedIn, setUserType } = React.useContext(accountContext);
+  const { setLoggedIn, setUserType, setUserEmail } =
+    React.useContext(accountContext);
 
   let navigate = useNavigate();
 
@@ -30,6 +31,7 @@ export default function Login() {
         if (authenticate(res.data.password)) {
           setLoggedIn(true);
           setUserType(res.data.userType);
+          setUserEmail(res.data.email);
           navigate("/home");
         } else {
           displayError();

@@ -9,6 +9,10 @@ const accountContext = React.createContext({
   setUserType: (user) => {
     this.userType = user;
   },
+  userEmail: "",
+  setUserEmail: (email) => {
+    this.userEmail = email;
+  },
 });
 
 export default accountContext;
