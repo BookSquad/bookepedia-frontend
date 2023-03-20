@@ -14,11 +14,12 @@ import logo from "./media/bookepedia.gif";
 
 function NavBar(props) {
   let navigate = useNavigate();
-  const { loggedIn, setLoggedIn, userType, setUserEmail } =
+  const { loggedIn, setLoggedIn, userType, setUserType, setUserEmail } =
     React.useContext(accountContext);
 
   const handleLogout = () => {
     setUserEmail("");
+    setUserType("USER");
     setLoggedIn(false);
     navigate("/");
   };

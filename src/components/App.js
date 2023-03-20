@@ -12,6 +12,7 @@ import Home from "./Home";
 import AccountDetails from "./userAccounts/AccountDetails";
 import AccountList from "./userAccounts/AccountList";
 import EditAccount from "./userAccounts/EditAccount";
+import CardInfo from "./cardInfo/CardInfo";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -46,6 +47,7 @@ function App() {
               path="/edit-account/:email"
               element={<EditAccount />}
             ></Route>
+            <Route path="/card-info" element={<CardInfo />}></Route>
           </Routes>
         </div>
       </Router>
