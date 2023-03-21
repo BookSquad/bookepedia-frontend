@@ -10,7 +10,7 @@ export default function Listing({ book }) {
   function deleteRecord() {
     axios
       .delete(`http://localhost:3500/book/${book.isbn}`)
-      .then((res) => navigate("/home"))
+      // .then((res) => navigate("/home"))
       .catch((err) => {
         console.log(err);
       });
@@ -26,9 +26,9 @@ export default function Listing({ book }) {
           {book.title} by {book.authors}
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted">${book.price}</Card.Subtitle>
-        <Button variant="primary" value={book.isbn} onClick={handleEdit}>
+        {/* <Button variant="primary" value={book.isbn} onClick={handleEdit}>
           Edit
-        </Button>
+        </Button> */}
         <Button variant="danger" onClick={deleteRecord}>
           Delete
         </Button>
