@@ -51,7 +51,13 @@ function NavBar(props) {
             <LinkContainer to="home">
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <Nav.Link href="#action2">Link</Nav.Link>
+            {loggedIn ? (
+              <LinkContainer to="listings">
+                <Nav.Link>Your Listings</Nav.Link>
+              </LinkContainer>
+            ) : (
+              <div></div>
+            )}
 
             <Nav.Link href="#">Link</Nav.Link>
           </Nav>

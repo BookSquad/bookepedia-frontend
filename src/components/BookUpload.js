@@ -5,10 +5,11 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
 import logo from "./media/bookepedia.gif";
-
+import accountContext from "./userAccounts/accountContext";
 import { useNavigate } from "react-router-dom";
 
 function BookUpload(props) {
+  const { userEmail } = React.useContext(accountContext);
   const [bookRec, setBookRec] = React.useState({
     title: "",
     isbn: "",
@@ -16,7 +17,7 @@ function BookUpload(props) {
     genre: "",
     price: undefined,
     description: "",
-    sellerEmail:'test'
+    sellerEmail: userEmail
   });
 
   let navigate = useNavigate();
