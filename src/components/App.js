@@ -48,6 +48,7 @@ function App() {
             <Route path="/edit-account/:email" element={<EditAccount />}></Route>
             <Route path="/edit-account/:email" element={<EditAccount />}></Route>
             <Route path="/card-info" element={<CardInfo />}></Route>
+            <Route path="/order-list" element={<orderListings/>} ></Route>
           </Routes>
         </div>
       </Router>

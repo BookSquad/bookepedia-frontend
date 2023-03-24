@@ -28,7 +28,7 @@ export default function Listing({ book }) {
         <Card.Subtitle className="mb-2 text-muted">${book.price}</Card.Subtitle>
         {/* <Button variant="primary" value={book.isbn} onClick={handleEdit}>
           Edit
-        </Button> */}
+        </Button>  */}
         <Button variant="danger" onClick={deleteRecord}>
           Delete
         </Button>
