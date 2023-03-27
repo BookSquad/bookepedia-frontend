@@ -72,7 +72,7 @@ function NavBar(props) {
               <Button variant="success">Search</Button>
             </Form>
 
-            {userType === "USER" ? (
+            {userType === "USER" && loggedIn ? (
               <LinkContainer to="upload">
                 <Nav.Link>Add Book +</Nav.Link>
               </LinkContainer>
