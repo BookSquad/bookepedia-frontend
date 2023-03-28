@@ -55,7 +55,7 @@ function Register(props) {
   };
 
   return (
-    <>
+    <div style={{ margin:"90px" }}>
       <img alt="logo" src={logo} className="mx-auto d-block" />
       <Form
         onSubmit={SubmitRec}
@@ -126,7 +126,7 @@ function Register(props) {
           Register
         </Button>
       </Form>
-    </>
+    </div>
   );
 }
 

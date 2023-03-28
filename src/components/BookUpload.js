@@ -79,7 +79,7 @@ function BookUpload(props) {
   };
 
   return (
-    <>
+    <div style={{margin:"90px"}}>
       <img
         alt="logo"
         src={logo}
@@ -239,7 +239,7 @@ function BookUpload(props) {
           Cancel
         </Button>
       </Form>
-    </>
+    </div>
   );
 }
 

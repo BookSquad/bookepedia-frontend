@@ -5,6 +5,8 @@ import Form from "react-bootstrap/Form";
 import accountContext from "./accountContext";
 import { useNavigate } from "react-router-dom";
 
+import logo from "../media/bookepedia.gif";
+
 export default function AccountDetails() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -58,7 +60,13 @@ export default function AccountDetails() {
   }
 
   return (
-    <div>
+    <div style={{margin:"auto", width:"40%"}}>
+      <img
+        alt="logo"
+        src={logo}
+        className="mx-auto d-block"
+        style={{ width: "130px" }}
+      />
       <h1>Account Details</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="first-name">

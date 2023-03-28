@@ -5,10 +5,11 @@ import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [books, setBooks] = useState([]);
-
+  let navigate = useNavigate();
   React.useEffect(() => {
     axios
       .get("http://localhost:3500/book/")
@@ -54,7 +55,7 @@ function Home() {
 
 
   return (
-<>
+<div style={{ margin: "90px" }}>
 <br/>
 <div style={{float: 'right'}}>
       <Form.Label htmlFor="sort">Sort By</Form.Label>
@@ -90,7 +91,7 @@ function Home() {
 
               maxHeight: "200px",
               objectFit: "contain",
-              border: "1px dotted black",
+              borderBottom: "1px solid black",
             }}
             src={"http://localhost:3500/BookImagesUploaded/" + book.image}
           />
@@ -105,7 +106,7 @@ function Home() {
             <hr/>
             <Card.Text>{book.description}</Card.Text>
             <hr/>
-            <Button variant="primary">Price: ${book.price.toFixed(2)}</Button>
+            <Button variant="primary" onClick={() => navigate('/book-details/' + book._id)}>Price: ${book.price.toFixed(2)}</Button>
             <br/>
             <small className="text-muted">Book viewed {book.views} times</small>
           </Card.Body>
@@ -122,7 +123,7 @@ function Home() {
       ))}
     </CardGroup>
 
-    </>
+    </div>
   );
 
   /*
