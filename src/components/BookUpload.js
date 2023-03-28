@@ -19,6 +19,7 @@ function BookUpload(props) {
     price: "",
     description: "",
     sellerEmail: userEmail,
+    condition: ""
   });
 
   const [file, setFile] = React.useState();
@@ -42,6 +43,7 @@ function BookUpload(props) {
     formData.append("price", bookRec.price);
     formData.append("description", bookRec.description);
     formData.append("sellerEmail", bookRec.sellerEmail);
+    formData.append("condition", bookRec.condition);
     
     //formData.append("bookRec", bookRec);
 
@@ -169,6 +171,27 @@ function BookUpload(props) {
           </div>
         </Form.Group>
 
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <div style={{ width: "45%", display: "inline-block" }}>
+            <Form.Label>Condition</Form.Label>
+            <Form.Select
+              onChange={onchange}
+              value={bookRec.condition}
+              name="condition"           
+              
+              aria-label="Default select example"
+            >
+              <option>Open this select menu</option>
+              <option value="New">New</option>
+              <option value="Used (Excellent)">Used (Excellent)</option>
+              <option value="Used (Good)">Used (Good)</option>
+              <option value="Other">Other</option>
+            </Form.Select>
+          </div>
+        </Form.Group>
+
+
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Description</Form.Label>
           <Form.Control
@@ -198,7 +221,7 @@ function BookUpload(props) {
             style={{
               maxWidth: "100px",
               maxHeight: "100px",
-              objectFit: "cover",
+              objectFit: "contain",
             }}
           />
         </Form.Group>

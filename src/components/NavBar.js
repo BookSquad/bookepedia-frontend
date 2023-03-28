@@ -32,13 +32,15 @@ function NavBar(props) {
       style={{ background: "#0047a9" }}
     >
       <Container fluid>
-        <Navbar.Brand href="#">
-          <img
-            alt="logo"
-            src={logo}
-            width="75"
-            className="d-inline-block align-top"
-          />
+        <Navbar.Brand>
+          <LinkContainer to="home">
+            <img
+              alt="logo"
+              src={logo}
+              width="75"
+              className="d-inline-block align-top"
+            />
+          </LinkContainer>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -58,10 +60,10 @@ function NavBar(props) {
             ) : (
               <div></div>
             )}
-
-            <Nav.Link href="#">Link</Nav.Link>
           </Nav>
-          <Nav variant="pills">
+          {/*<Nav.Link href="#">Link</Nav.Link>*/}
+
+          <Nav>
             <Form className="d-flex">
               <Form.Control
                 type="search"
