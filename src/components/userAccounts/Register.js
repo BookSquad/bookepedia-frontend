@@ -37,9 +37,16 @@ function Register(props) {
     await axios
       .post("http://localhost:3500/user/register/", userRec)
       .then((res) => {
+        
+        console.log(res.data.message);
         console.log("success");
-        alert(`Thank you ${userRec.fname}, your account has been created`);
-        navigate("/");
+        if(res.data.message == "exists"){
+          alert(`An account with the email ${userRec.email} already exists`);
+        }else{
+          alert(`Thank you ${userRec.fname}, your account has been created`);
+          navigate("/");
+        }
+        
       })
       .catch((err) => {
         console.log(err);
@@ -48,7 +55,7 @@ function Register(props) {
   };
 
   return (
-    <>
+    <div style={{ margin:"90px" }}>
       <img alt="logo" src={logo} className="mx-auto d-block" />
       <Form
         onSubmit={SubmitRec}
@@ -119,7 +126,7 @@ function Register(props) {
           Register
         </Button>
       </Form>
-    </>
+    </div>
   );
 }
 

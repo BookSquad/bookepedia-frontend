@@ -7,6 +7,8 @@ import accountContext from "./accountContext";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+import logo from "../media/bookepedia.gif";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -69,8 +71,14 @@ export default function Login() {
 
   return (
     //create UI for login form
-    <div className="loginForm">
-      <Form>
+    <div style={{margin:"auto", width:"40%"}} className="loginForm">
+      <img
+        alt="logo"
+        src={logo}
+        className="mx-auto d-block"
+        style={{ width: "130px" }}
+      />
+      <Form style={{ maxWidth: "450px", padding: "30px" }} className="mx-auto d-block border border-2">
         <h1>Login</h1>
         <p color="#ff0000">{errorMessage}</p>
         <Form.Group className="mb-3" controlId="formBasicEmail">
