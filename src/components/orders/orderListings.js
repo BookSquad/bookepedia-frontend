@@ -5,9 +5,10 @@ const ActiveOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get("/orders/active")
-      .then(res => setOrders(res.data))
-      .catch(err => console.error(err));
+    axios
+      .get("http://localhost:3500/orders")
+      .then((res) => setOrders(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
@@ -24,7 +25,7 @@ const ActiveOrders = () => {
           </tr>
         </thead>
         <tbody>
-          {orders.map(order => (
+          {orders.map((order) => (
             <tr key={order.orderId}>
               <td>{order.orderId}</td>
               <td>{order.userId}</td>

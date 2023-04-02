@@ -84,7 +84,15 @@ function NavBar(props) {
 
             {userType === "ADMIN" ? (
               <LinkContainer to="/all-accounts">
-                <Nav.Link>All Accounts</Nav.Link>
+                <Nav.Link>Accounts</Nav.Link>
+              </LinkContainer>
+            ) : (
+              <div></div>
+            )}
+
+            {userType === "DELIVERY" ? (
+              <LinkContainer to="/order-list">
+                <Nav.Link>Orders</Nav.Link>
               </LinkContainer>
             ) : (
               <div></div>
@@ -96,7 +104,7 @@ function NavBar(props) {
 
             {loggedIn ? (
               <LinkContainer to="account-details">
-                <Nav.Link>Account Details</Nav.Link>
+                <Nav.Link>My Account</Nav.Link>
               </LinkContainer>
             ) : (
               <div></div>

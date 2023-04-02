@@ -15,6 +15,7 @@ export default function Listing({ book }) {
         console.log(err);
       });
   }
+  
   function handleEdit(event) {
     navigate(`/edit-listing/${event.target.value}`, true);
   }

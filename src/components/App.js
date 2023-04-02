@@ -15,6 +15,7 @@ import EditAccount from "./userAccounts/EditAccount";
 import CardInfo from "./cardInfo/CardInfo";
 import AllListings from "./Listings/AllListings";
 import BookDetails from "./Listings/BookDetails";
+import OrderListings from "./orders/orderListings";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -47,10 +48,16 @@ function App() {
             <Route path="/all-accounts" element={<AccountList />}></Route>
             <Route path="/listings" element={<AllListings />}></Route>
             <Route path="/book-details/:_id" element={<BookDetails />}></Route>
-            <Route path="/edit-account/:email" element={<EditAccount />}></Route>
-            <Route path="/edit-account/:email" element={<EditAccount />}></Route>
+            <Route
+              path="/edit-account/:email"
+              element={<EditAccount />}
+            ></Route>
+            <Route
+              path="/edit-account/:email"
+              element={<EditAccount />}
+            ></Route>
             <Route path="/card-info" element={<CardInfo />}></Route>
-            <Route path="/order-list" element={<orderListings/>} ></Route>
+            <Route path="/order-list" element={<OrderListings />}></Route>
           </Routes>
         </div>
       </Router>
