@@ -23,8 +23,8 @@ export default function BookDetails() {
   return (
     <>
       {book ? (
-        <div style={{margin:"20px"}}>
-         <br/>
+        <div style={{ margin: "20px" }}>
+          <br />
           <img
             style={{
               width: "35%",
@@ -36,12 +36,11 @@ export default function BookDetails() {
             }}
             src={"http://localhost:3500/BookImagesUploaded/" + book.image}
           />
-          <div style={{ marginLeft:'30px',float: "left",width:'45%' }}>
-            <h1 style={{marginBottom:'0px'}}>
-              {book.title}
-            </h1>
+          <div style={{ marginLeft: "30px", float: "left", width: "45%" }}>
+            <h1 style={{ marginBottom: "0px" }}>{book.title}</h1>
             <i>by {book.authors}</i>
-            <br/><br/>
+            <br />
+            <br />
             <p>Condition: {book.condition}</p>
             <hr />
             <p>{book.description}</p>
@@ -52,18 +51,25 @@ export default function BookDetails() {
             >
               Price: ${book.price.toFixed(2)}
             </Button>
+            <Button
+              variant="primary"
+              onClick={() => navigate("/order-summary/" + book._id)}
+            >
+              Buy
+            </Button>
             <br />
             <small className="text-muted">Book viewed {book.views} times</small>
-            <br/><br/>
-            <p >
+            <br />
+            <br />
+            <p>
               <b>Genre:</b> {book.genre} <br />
               <b>ISBN:</b> {book.isbn} <br />
               <b>Sold by:</b> {book.sellerEmail} <br />
-              <b>Date Added:</b> {new Date(book.dateAdded).toLocaleString("en-CA")}
+              <b>Date Added:</b>{" "}
+              {new Date(book.dateAdded).toLocaleString("en-CA")}
               <br />
             </p>
           </div>
-         
         </div>
       ) : (
         ""

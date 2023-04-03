@@ -5,21 +5,21 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import accountContext from "../userAccounts/accountContext";
 
-export default function CardInfo() {
+export default function CardInfo({ setPaymentValidated }) {
   let navigate = useNavigate(); //used in handleSubmit
   const [cardNumber, setCardNumber] = useState("");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [postalCode, setPostalCode] = useState("");
 
-  const { email } = React.useContext(accountContext);
+  //const { loggedIn } = React.useContext(accountContext);
 
   //make sure that only users that are logged in can access this page
-  useEffect(() => {
-    if (email !== "") {
-      navigate("/home");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!loggedIn) {
+  //     navigate("/home");
+  //   }
+  // }, []);
 
   function handleChange(event) {
     switch (event.target.name) {
@@ -42,6 +42,8 @@ export default function CardInfo() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    setPaymentValidated(true);
 
     //to do: redirect to link
     //nvaigate("/order-confirmation")
