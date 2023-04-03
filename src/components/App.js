@@ -16,6 +16,7 @@ import CardInfo from "./cardInfo/CardInfo";
 import AllListings from "./Listings/AllListings";
 import BookDetails from "./Listings/BookDetails";
 import OrderListings from "./orders/orderListings";
+import OrderSummary from "./orders/OrderSummary";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -49,6 +50,10 @@ function App() {
             <Route path="/listings" element={<AllListings />}></Route>
             <Route path="/book-details/:_id" element={<BookDetails />}></Route>
             <Route
+              path="/order-summary/:_id"
+              element={<OrderSummary />}
+            ></Route>
+            <Route
               path="/edit-account/:email"
               element={<EditAccount />}
             ></Route>
@@ -56,7 +61,6 @@ function App() {
               path="/edit-account/:email"
               element={<EditAccount />}
             ></Route>
-            <Route path="/card-info" element={<CardInfo />}></Route>
             <Route path="/order-list" element={<OrderListings />}></Route>
           </Routes>
         </div>
