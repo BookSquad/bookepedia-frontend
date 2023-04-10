@@ -53,6 +53,7 @@ function NavBar(props) {
             <LinkContainer to="home">
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
+            {userType === "USER" && loggedIn ? (
               <LinkContainer to="listings">
                 <Nav.Link>Your Listings</Nav.Link>
               </LinkContainer>
