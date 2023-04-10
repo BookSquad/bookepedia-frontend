@@ -94,6 +94,9 @@ function Home() {
               borderBottom: "1px solid black",
             }}
             src={"http://localhost:3500/BookImagesUploaded/" + book.image}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src="http://localhost:3500/BookImagesUploaded/noImage.png";}}
           />
           <Card.Body>
             <Card.Title style={{ textAlign: "center" }}>
