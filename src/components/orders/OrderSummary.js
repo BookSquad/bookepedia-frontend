@@ -35,6 +35,7 @@ export default function OrderSummary() {
   function handlePurchase() {
     //create order object
     var bodyData = {
+      bookId: _id,
       buyerEmail: userEmail,
       sellerEmail: book.sellerEmail,
       isbn: book.isbn,

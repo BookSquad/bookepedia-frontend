@@ -17,6 +17,7 @@ import AllListings from "./Listings/AllListings";
 import BookDetails from "./Listings/BookDetails";
 import OrderListings from "./orders/orderListings";
 import OrderSummary from "./orders/OrderSummary";
+import UserOrders from "./orders/UserOrders";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -62,6 +63,7 @@ function App() {
               element={<EditAccount />}
             ></Route>
             <Route path="/order-list" element={<OrderListings />}></Route>
+            <Route path="/your-orders" element={<UserOrders />}></Route>
           </Routes>
         </div>
       </Router>

@@ -53,9 +53,16 @@ function NavBar(props) {
             <LinkContainer to="home">
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            {loggedIn ? (
               <LinkContainer to="listings">
                 <Nav.Link>Your Listings</Nav.Link>
+              </LinkContainer>
+            ) : (
+              <div></div>
+            )}
+
+            {userType === "USER" && loggedIn ? (
+              <LinkContainer to="your-orders">
+                <Nav.Link>Your Orders</Nav.Link>
               </LinkContainer>
             ) : (
               <div></div>

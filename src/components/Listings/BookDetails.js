@@ -37,7 +37,9 @@ export default function BookDetails() {
             src={"http://localhost:3500/BookImagesUploaded/" + book.image}
             onError={({ currentTarget }) => {
               currentTarget.onerror = null; // prevents looping
-              currentTarget.src="http://localhost:3500/BookImagesUploaded/noImage.png";}}
+              currentTarget.src =
+                "http://localhost:3500/BookImagesUploaded/noImage.png";
+            }}
           />
           <div style={{ marginLeft: "30px", float: "left", width: "45%" }}>
             <h1 style={{ marginBottom: "0px" }}>{book.title}</h1>
@@ -54,12 +56,19 @@ export default function BookDetails() {
             >
               Price: ${book.price.toFixed(2)}
             </Button>
-            <Button
-              variant="primary"
-              onClick={() => navigate("/order-summary/" + book._id)}
-            >
-              Buy
-            </Button>
+
+            {"         "}
+            {book.sold ? (
+              <Button variant="danger">SOLD</Button>
+            ) : (
+              <Button
+                variant="primary"
+                onClick={() => navigate("/order-summary/" + book._id)}
+              >
+                Buy
+              </Button>
+            )}
+
             <br />
             <small className="text-muted">Book viewed {book.views} times</small>
             <br />
