@@ -3,11 +3,9 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
-import accountContext from "../userAccounts/accountContext";
 
 export default function Listing({ book, setAllListings }) {
   let navigate = useNavigate();
-  const { userType } = React.useContext(accountContext);
 
   async function deleteRecord() {
     await axios

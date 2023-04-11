@@ -12,7 +12,7 @@ export default function Order({ order, setOrders }) {
 
   function deleteRecord() {
     axios
-      .delete(`http://localhost:3500/user/${order._id}`)
+      .delete(`http://localhost:3500/orders/delete-order/${order._id}`)
       .then((res) => navigate("/home"))
       .catch((err) => {
         console.log(err);
@@ -42,7 +42,8 @@ export default function Order({ order, setOrders }) {
       <Card.Body>
         <Card.Title>Order ID: {order._id}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
-          Buyer: {order.buyerEmail}{" "}
+          Buyer: {order.buyerEmail}
+          {"  "}
           <Button
             href={`mailto:${order.buyerEmail}?Subject=Bookepedia%20Order%20`}
             target="_blank"
@@ -53,6 +54,7 @@ export default function Order({ order, setOrders }) {
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
           Seller: {order.sellerEmail}
+          {"  "}
           <Button
             href={`mailto:${order.sellerEmail}?Subject=Bookepedia%20Order%20`}
             target="_blank"
