@@ -18,9 +18,6 @@ export default function Order({ order, setOrders }) {
         console.log(err);
       });
   }
-  function handleEdit(event) {
-    //TO DO:
-  }
 
   async function updateStatus(status, id) {
     try {
@@ -69,9 +66,6 @@ export default function Order({ order, setOrders }) {
         <Card.Subtitle className="mb-2 text-muted">
           Order Status: {order.status}
         </Card.Subtitle>
-        <Button variant="primary" value={order._id} onClick={handleEdit}>
-          Edit
-        </Button>{" "}
         <Button
           variant="primary"
           onClick={() => updateStatus("Shipped", order._id)}
