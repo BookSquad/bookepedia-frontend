@@ -110,6 +110,12 @@ function Home() {
             <Card.Text>{book.description}</Card.Text>
             <hr/>
             <Button variant="primary" onClick={() => navigate('/book-details/' + book._id)}>Price: ${book.price.toFixed(2)}</Button>
+            
+            {'         '}
+            {book.sold ? (<Button variant="danger">SOLD</Button>) : (<span></span>)}
+            
+            
+            
             <br/>
             <small className="text-muted">Book viewed {book.views} times</small>
           </Card.Body>

@@ -9,7 +9,7 @@ export default function OrderSummary() {
   const [paymentValidated, setPaymentValidated] = useState(false);
   const [book, setBook] = useState({});
   const [seller, setSeller] = useState({});
-  const { _id } = useParams();
+  const { _id, conditionVerification } = useParams();
   let navigate = useNavigate();
 
   const { loggedIn, userEmail } = React.useContext(accountContext);
@@ -35,10 +35,12 @@ export default function OrderSummary() {
   function handlePurchase() {
     //create order object
     var bodyData = {
+      bookId: _id,
       buyerEmail: userEmail,
       sellerEmail: book.sellerEmail,
       isbn: book.isbn,
       price: book.price,
+      conditionVerification:  conditionVerification ? "Yes" : "No"
     };
 
     axios

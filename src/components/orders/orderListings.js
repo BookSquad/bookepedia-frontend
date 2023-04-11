@@ -16,7 +16,7 @@ const ActiveOrders = () => {
     <div>
       <h2>Active Orders</h2>
       {orders.map((order) => (
-        <Order key={order._id} order={order} />
+        <Order key={order._id} order={order} setOrders={setOrders} />
       ))}
     </div>
   );

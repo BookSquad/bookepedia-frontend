@@ -24,7 +24,7 @@ export default function AllListings() {
     <div>
       <h1>Your Listings</h1>
       {allListings.map((listing) => listing.sellerEmail === userEmail ? (
-        <Listing key={listing._id} book={listing} /> 
+        <Listing key={listing._id} book={listing} setAllListings={setAllListings} /> 
         ) : (
         <div></div>
         )       
