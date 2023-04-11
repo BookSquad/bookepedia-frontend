@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 
 export default function BookDetails() {
   let navigate = useNavigate();
@@ -42,6 +42,7 @@ export default function BookDetails() {
               currentTarget.src =
                 "http://localhost:3500/BookImagesUploaded/noImage.png";
             }}
+            alt={"book cover"}
           />
           <div style={{ marginLeft: "30px", float: "left", width: "45%" }}>
             <h1 style={{ marginBottom: "0px" }}>{book.title}</h1>
@@ -62,21 +63,28 @@ export default function BookDetails() {
             {"         "}
             {book.sold ? (
               <Button variant="danger">SOLD</Button>
-            ) : ( <>
-              <Button
-                variant="primary"
-                onClick={() => navigate(`/order-summary/${book._id}/${conditionVerification}`)}
-              >
-                Buy
-              </Button>
-              <Form.Check 
-              type="checkbox"
-              id="conditionVerify"
-              label="Condition Guarantee +$5"
-              checked={conditionVerification}
-              onChange = {(event) => setConditionVerification(event.target.checked)}
-
-            /></>
+            ) : (
+              <>
+                <Button
+                  variant="primary"
+                  onClick={() =>
+                    navigate(
+                      `/order-summary/${book._id}/${conditionVerification}`
+                    )
+                  }
+                >
+                  Buy
+                </Button>
+                <Form.Check
+                  type="checkbox"
+                  id="conditionVerify"
+                  label="Condition Guarantee +$5"
+                  checked={conditionVerification}
+                  onChange={(event) =>
+                    setConditionVerification(event.target.checked)
+                  }
+                />
+              </>
             )}
 
             <br />
