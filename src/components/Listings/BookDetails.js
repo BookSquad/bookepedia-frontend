@@ -3,11 +3,13 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Form from 'react-bootstrap/Form';
 
 export default function BookDetails() {
   let navigate = useNavigate();
   const { _id } = useParams();
   const [book, setBook] = useState();
+  const [conditionVerification, setConditionVerification] = useState(false);
 
   useEffect(() => {
     axios
@@ -60,13 +62,21 @@ export default function BookDetails() {
             {"         "}
             {book.sold ? (
               <Button variant="danger">SOLD</Button>
-            ) : (
+            ) : ( <>
               <Button
                 variant="primary"
-                onClick={() => navigate("/order-summary/" + book._id)}
+                onClick={() => navigate(`/order-summary/${book._id}/${conditionVerification}`)}
               >
                 Buy
               </Button>
+              <Form.Check 
+              type="checkbox"
+              id="conditionVerify"
+              label="Condition Guarantee +$5"
+              checked={conditionVerification}
+              onChange = {(event) => setConditionVerification(event.target.checked)}
+
+            /></>
             )}
 
             <br />
