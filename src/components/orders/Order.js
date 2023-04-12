@@ -46,7 +46,7 @@ export default function Order({ order, setOrders }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Email Seller
+            Email Buyer
           </Button>
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
@@ -57,7 +57,7 @@ export default function Order({ order, setOrders }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Email Buyer
+            Email Seller
           </Button>
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
