@@ -86,7 +86,14 @@ export default function BookDetails() {
                 />
               </>
             )}
-
+            {"         "}
+            <Button
+            href={`mailto:${book.sellerEmail}?Subject=Bookepedia%20Order%20`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Email Seller
+          </Button>
             <br />
             <small className="text-muted">Book viewed {book.views} times</small>
             <br />
